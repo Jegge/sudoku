@@ -1,0 +1,25 @@
+-- Haskell Playground 1.0
+import Data.Maybe
+easy = concat [ "79    3  " -- "79    3  "
+               ,"     69  "
+               ,"8   3  76"
+               ,"     5  2"
+               ,"  54187  "
+               ,"4  7     "
+               ,"61  9   8"
+               ,"  23     "
+               ,"  9    54"
+               ]
+grid = fromJust $ parseGrid easy
+
+
+--putStrLn $ show $ candidates grid
+
+
+
+part = candidatesInRow 1 grid
+
+
+putStrLn $ unlines $ map show part
+
+

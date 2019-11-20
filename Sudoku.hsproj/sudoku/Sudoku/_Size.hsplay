@@ -1,0 +1,15 @@
+-- Haskell Playground 1.0
+
+--import Test.QuickCheck
+--
+--
+--let quickCheck' prop = output <$> quickCheckWithResult stdArgs{chatty = False} prop
+--
+--
+--quickCheck' indexToRowCol
+--
+--quickCheck' rowColToIndex
+--
+--
+--indexToRowCol 23
+--rowColToIndex 2 5

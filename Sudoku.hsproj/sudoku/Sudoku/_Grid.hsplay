@@ -1,0 +1,48 @@
+-- Haskell Playground 1.0
+
+easy = concat [ "79    3  "
+               ,"     69  "
+               ,"8   3  76"
+               ,"     5  2"
+               ,"  54187  "
+               ,"4  7     "
+               ,"61  9   8"
+               ,"  23     "
+               ,"  9    54"
+               ]
+
+grid = fromJust $ parseGrid 3 easy
+
+show grid
+
+
+rows grid
+
+isValid grid
+
+
+--map (concat) $ chunksOf size $ 
+
+
+
+
+partIsValid r = (nub $ filter (/=Empty) r) == (filter (/=Empty) r)
+
+
+and $ map partIsValid $ rows grid   
+
+r = 2
+c = 2
+
+
+
+
+(Grid s c) = grid
+
+
+
+--putStrLn $ show $ chunksOf 9 $ concat $ concat $ transpose $ chunksOf 3 $ chunksOf 3 $ c
+
+subAt 1 2 grid
+
+colAt 1 grid

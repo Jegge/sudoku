@@ -1,0 +1,34 @@
+cabal-version: 1.22
+name: sudoku
+version: 1.0
+license: MIT
+copyright: � 2018 Sebastian Boettcher
+maintainer: Sebastian Boettcher
+author: Sebastian Boettcher
+stability: experimental
+x-ghc-framework-version: 8.6.4-13.14-2
+x-last-ide-version: HfM1.7.0
+build-type: Simple
+data-files:
+    links.txt
+    hard.txt
+    simple.txt
+    easy.txt
+    medium.txt
+
+executable sudoku
+    main-is: Main.hs
+    other-modules:
+        Tests
+        Sudoku.Candidates
+        Sudoku.Solver
+        Sudoku.Cell
+        Sudoku.Grid
+        Sudoku.Hint
+        Sudoku.Size
+    default-language: Haskell2010
+    build-depends:
+        HUnit -any,
+        split -any,
+        base -any,
+        cmdargs -any

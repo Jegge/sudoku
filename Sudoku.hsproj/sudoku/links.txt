@@ -1,0 +1,6 @@
+https://www.sudoku-solutions.com 
+
+easy    11495
+medium  1974
+hard    2184
+

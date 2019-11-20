@@ -1,0 +1,76 @@
+module Sudoku.Candidates where  --(
+--  Candidates(..),
+--  nakedSingles,
+--  hiddenSingles
+--) where
+--  
+--import Data.List
+--
+--import Sudoku.Size
+--import Sudoku.Cell
+--import Sudoku.Grid
+--import Sudoku.Solver
+--
+--data Candidates = Candidates { 
+--                      row :: Int
+--                    , col :: Int
+--                    , values :: [Cell]
+--                    }
+--                    deriving (Show, Eq)
+--
+--cells :: [Cell]
+--cells = [Value x | x <- [1..side]]
+--
+--
+--hasValues :: Candidates -> Bool
+--hasValues = not . null . values
+--
+--hasSingleValue :: Candidates -> Bool
+--hasSingleValue candidate = (length $ values candidate) == 1
+--
+--hasValue :: Cell -> Candidates  -> Bool
+--hasValue v c = v `elem` values c
+--
+--
+--
+--candidatesAt :: Int -> Int -> Grid -> Candidates
+--candidatesAt r c grid =  Candidates r c (filter (\v -> canSetCellAt v r c grid) cells)
+--
+--candidates :: Grid -> [Candidates]
+--candidates grid = [ candidatesAt r c grid | r <- rowIndicees, c <- colIndicees]
+--
+--candidatesInRow :: Int -> Grid -> [Candidates]
+--candidatesInRow r grid = filter hasValues [ candidatesAt r c grid | c <- colIndicees ]
+--
+--candidatesInCol :: Int -> Grid -> [Candidates]
+--candidatesInCol c grid = filter hasValues [ candidatesAt r c grid | r <- rowIndicees ]
+--
+--candidatesInSub :: Int -> Int -> Grid -> [Candidates]
+--candidatesInSub r c grid = filter hasValues [ candidatesAt (r' + r * size) (c' + c * size) grid | (r', c') <- subIndicees ]
+--
+--
+--
+--histogram :: [Candidates] -> [(Int, Cell)]
+--histogram = map (\l -> (length l, head l)) . group . sort . concatMap values
+--
+--
+--
+--hiddenSingles :: Grid -> [Candidates]
+--hiddenSingles grid = (nub . concat) ( inRows ++ inCols ++ inSubs)
+--  where 
+--    inRows = [ hiddenSingles' $ candidatesInRow r grid | r <- rowIndicees]
+--    inCols = [ hiddenSingles' $ candidatesInCol c grid | c <- rowIndicees]
+--    inSubs = [ hiddenSingles' $ candidatesInSub r c grid | (r, c) <- subIndicees]    
+--    hiddenSingles' part = filter hasValues $ map (\c -> Candidates (row c) (col c) (intersect (values c) (singleValues part))) part
+--      where 
+--        singleValues = map snd . filter ((== 1) . fst) . histogram 
+--
+--
+--
+--nakedSingles :: Grid -> [Candidates]
+--nakedSingles = filter hasSingleValue . candidates
+--
+--    
+--
+--
+--     
